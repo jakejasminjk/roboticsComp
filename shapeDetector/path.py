@@ -6,6 +6,7 @@ import os
 
 #clear data file
 open("data.txt", "w").close()
+open("rawData.txt", "w").close()
 
 start = (int(sys.argv[3]),int(sys.argv[4]))
 end = (int(sys.argv[5]), int(sys.argv[6]))
@@ -77,6 +78,8 @@ for position in path:
     with open('./data.txt', 'a') as f1:
         content = "{0},{1}".format(x/20, y/9)
         f1.write(content + os.linesep)
-
+    with open('./rawData.txt', 'a') as f1:
+        content = "{0},{1}".format(x, y)
+        f1.write(content + os.linesep)
 print(path)
 path_img.save(sys.argv[2])
